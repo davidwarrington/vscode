@@ -1,0 +1,76 @@
+{
+  "Script Tag": {
+    "prefix": "script",
+    "body": "<script src=\"{{ '${1:script}.js' | asset_url }}\"${2| type=\"module\", defer, async|}></script>"
+  },
+
+  "Translation": {
+    "prefix": "translation",
+    "body": "{{${1:-} '${2:translation}' | t ${1:-}}}"
+  },
+
+  "Log variable": {
+    "prefix": "log",
+    "body": [
+      "<script>",
+      "\tconsole.log({",
+      "\t\t'${1:variable}': {{ ${1:variable} | json }},",
+      "\t});",
+      "</script>"
+    ]
+  },
+
+  "Log variable in Liquid tag": {
+    "prefix": "echolog",
+    "body": [
+      "echo '<script> console.log({'",
+      "echo ${1:variable} | json | prepend: '\"${1:variable}\": ' | append: ','",
+      "echo '}); </script>'"
+    ]
+  },
+
+  "Schema: Link": {
+    "prefix": "schema: link",
+    "body": [
+      "{",
+      "\t\"type\": \"text\",",
+      "\t\"id\": \"${1:id}\",",
+      "\t\"label\": \"${2:label}\"${3:,",
+      "\t\"default\": \"$4\"}",
+      "},",
+      "{",
+      "\t\"type\": \"url\",",
+      "\t\"id\": \"${5:id}\",",
+      "\t\"label\": \"${6:label}\"${7:,",
+      "\t\"default\": \"$8\"}",
+      "}${9:,}"
+    ],
+    "description": "Schema input settings (text and url) (Liquid)"
+  },
+
+  "Schema: Help": {
+    "prefix": "schema: help",
+    "body": [
+      "{",
+      "\t\"type\": \"header\",",
+      "\t\"content\": \"Need help?\",",
+      "\t\"info\": \"[User guide](${1:https://link.tothebasecamp.thread})\"",
+      "},"
+    ],
+    "description": "Schema help link (Liquid)"
+  },
+
+  "Schema: Lazy Media": {
+    "prefix": "schema: lazy",
+    "body": [
+      "{",
+      "\t\"type\": \"checkbox\",",
+      "\t\"id\": \"lazy_media\",",
+      "\t\"label\": \"Lazy Media\",",
+      "\t\"default\": true,",
+      "\t\"info\": \"If this section is likely to be \"above the fold\" then this should be unchecked for best Lighthouse scores\"",
+      "},"
+    ],
+    "description": "Schema help link (Liquid)"
+  }
+}
