@@ -1,0 +1,60 @@
+{
+  "JSDoc param": {
+    "prefix": "@param",
+    "body": [
+      "/** @param {${1|boolean,number,string,Record<string\\, unknown>,{}|}} $0 */"
+    ]
+  },
+
+  "JSDoc type": {
+    "prefix": "@type",
+    "body": [
+      "/** @type {${1|boolean,number,string,Record<string\\, unknown>,{}|}} */"
+    ]
+  },
+
+  "JSDoc typedef": {
+    "prefix": "@typedef",
+    "body": [
+      "/**",
+      " * @typedef {Object} ${1:Interface}",
+      " *",
+      " * @property {${2|boolean,number,string,Record<string\\, unknown>,{}|}} ${3:property}",
+      " */"
+    ]
+  },
+
+  "JSDoc event": {
+    "prefix": "@event",
+    "body": [
+      "/** @typedef {CustomEvent<${1|boolean,number,string,Record<string\\, unknown>,{}|}>} ${2:CustomEvent} */"
+    ]
+  },
+
+  "BAO Custom Element": {
+    "prefix": "bao-custom-element",
+    "body": [
+      "class ${1:CustomElement} extends window.BAO.CustomElement(${3:{",
+      "\tSuperClass: ${4:HTMLElement},",
+      "\\}}) {",
+      "\tstatic get requiredElements () {",
+      "\t\treturn [$7]",
+      "\t}",
+      "",
+      "\tconnectedCallback () {",
+      "\t\tsuper.connectedCallback()",
+      "\t}",
+      "",
+      "\tsetupListeners () {",
+      "\t\tsuper.setupListeners()",
+      "",
+      "\t\tthis.listeners.add($0)",
+      "\t}",
+      "}",
+      "",
+      "if (!window.customElements.get('${2:custom-element}')) {",
+      "\twindow.customElements.define('${2:custom-element}', ${1:CustomElement}${5:, { extends: '$6' \\}})",
+      "}"
+    ]
+  }
+}
